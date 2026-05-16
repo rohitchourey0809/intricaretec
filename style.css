@@ -23,78 +23,77 @@ body {
 
 .modal {
     background-color: #ffffff;
-    width: min(90%, 702px);
-    max-width: 702px;
-    max-height: calc(100vh - 80px);
+    width: 702px;
+    height: 557px;
     border-radius: 12px;
-    padding: clamp(16px, 3.5vw, 40px);
     position: relative;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
+    overflow: hidden;
 }
 
-
-
+/* HEADER FIXED ON TOP */
 .modal-header {
-    text-align: left;
+    width: 100%;
+    background-color: #f5f5f5;
+    padding: 24px 32px;
     position: relative;
-    margin-bottom: 60px;
-    background-color: #f5f5f5;
-    /* border: 1px solid red; */
-    margin: -40px -40px 20px -40px;
-    padding: 18px 40px;
-    background-color: #f5f5f5;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
-
 }
 
 .modal-header h2 {
-    font-family: 'Inter', sans-serif;
     font-size: 28px;
     color: #5e5873;
+    margin-bottom: 6px;
 }
 
 .modal-header p {
-    font-family: 'Inter', sans-serif;
     font-size: 14px;
     color: #97969e;
 }
 
+/* CLOSE BUTTON */
 .close-btn {
     position: absolute;
     right: 30px;
-    top: 30px;
-    width: 15px;
-    height: 15px;
+    top: 28px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1px solid #777;
+    background: transparent;
+    color: #777;
+    font-size: 16px;
+    cursor: pointer;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #f5f5f5;
-    border: 1px solid #666;
-    border-radius: 50%;
-    font-size: 12px;
-    color: #666;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-    cursor: pointer;
-    padding: 0;
 }
 
+/* CENTER CONTENT */
 .modal-body {
+    height: calc(100% - 110px);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
     text-align: center;
+    padding: 20px;
 }
 
 .modal-body h3 {
     font-size: 22px;
     color: #5e5873;
-    margin-bottom: 10px;
+    margin-bottom: 14px;
 }
 
 .subtext {
     color: #65607a;
     font-size: 14px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .create-btn {
@@ -103,19 +102,33 @@ body {
     border-radius: 6px;
     color: white;
     font-size: 16px;
-    padding: 12px 28px;
+    padding: 14px 36px;
     cursor: pointer;
-    transition: transform 0.2s ease, background 0.3s ease;
+    transition: 0.3s ease;
 }
 
 .create-btn:hover {
-    background: linear-gradient(90deg, #5E8FFF, #4C7BFF);
     transform: scale(1.03);
 }
 
-@media (max-width: 500px) {
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+
     .modal {
-        padding: 30px 20px;
+        width: 90%;
+        height: auto;
+    }
+
+    .modal-body {
+        padding: 60px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .modal-header {
+        padding: 18px 20px;
     }
 
     .modal-header h2 {
@@ -127,60 +140,11 @@ body {
     }
 
     .create-btn {
-        font-size: 14px;
-        padding: 10px 20px;
-    }
-}
-
-@media (max-width: 720px) {
-    .modal {
-        width: calc(100% - 40px);
-        max-width: none;
-        max-height: calc(100vh - 48px);
-        padding: 20px;
-        border-radius: 10px;
-    }
-
-    .modal-header {
-        margin: -20px -20px 16px -20px;
-        padding: 12px 20px;
+        width: 100%;
     }
 
     .close-btn {
         right: 18px;
-        top: 18px;
-        width: 32px;
-        height: 32px;
-        font-size: 14px;
-    }
-}
-
-@media (max-width: 420px) {
-    .modal {
-        width: calc(100% - 24px);
-        padding: 14px;
-        border-radius: 8px;
-    }
-
-    .modal-header {
-        margin: -14px -14px 12px -14px;
-        padding: 10px 14px;
-    }
-
-    .modal-header h2 {
-        font-size: 20px;
-    }
-
-    .modal-header p,
-    .subtext {
-        font-size: 13px;
-    }
-
-    .close-btn {
-        right: 12px;
-        top: 12px;
-        width: 28px;
-        height: 28px;
-        font-size: 12px;
+        top: 20px;
     }
 }
